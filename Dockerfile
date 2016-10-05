@@ -11,9 +11,8 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-configure gd --with-png-dir=/usr --with-freetype-dir=/usr --with-freetype2-dir=/usr \
     && docker-php-ext-install gd pdo pdo_mysql mysqli mbstring json
 
-ENV PIWIK_VERSION 2.16.1
+ENV PIWIK_VERSION 2.16.5
 
-RUN curl http://builds.piwik.org/piwik-$PIWIK_VERSION.tar.gz | tar xz --strip-components=1 \
     && chown -R www-data:www-data /var/www/html \
     && echo "always_populate_raw_post_data=-1" | tee -a /usr/local/etc/php/conf.d/security.ini
 
