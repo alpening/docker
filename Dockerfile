@@ -13,6 +13,7 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-freetype-dir=/usr --w
 
 ENV PIWIK_VERSION 2.16.5
 
+RUN curl https://builds.piwik.org/piwik-$PIWIK_VERSION.tar.gz | tar xz --strip-components=1 \
     && chown -R www-data:www-data /var/www/html \
     && echo "always_populate_raw_post_data=-1" | tee -a /usr/local/etc/php/conf.d/security.ini
 
